@@ -31,15 +31,12 @@ public class KonversiSuhu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
         fahrenheitLabel = new javax.swing.JLabel();
         btnConvert = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         celciusLabel = new javax.swing.JLabel();
         celciusTextField = new javax.swing.JTextField();
-
-        jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -198,6 +195,5 @@ public class KonversiSuhu extends javax.swing.JFrame {
     private javax.swing.JLabel celciusLabel;
     private javax.swing.JTextField celciusTextField;
     private javax.swing.JLabel fahrenheitLabel;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
