@@ -59,7 +59,7 @@ public class KonversiSuhu extends javax.swing.JFrame {
             }
         });
 
-        clearButton1.setText("CLEAR");
+        clearButton1.setText("RESET");
         clearButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearButton1ActionPerformed(evt);
