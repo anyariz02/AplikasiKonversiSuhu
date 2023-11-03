@@ -19,6 +19,7 @@ public class KonversiSuhu extends javax.swing.JFrame {
     public KonversiSuhu() {
         initComponents();
         this.setTitle("Aplikasi Konversi Suhu"); // that is the code you looking for
+        setLocationRelativeTo(this);
     }
 
     /**
@@ -37,6 +38,11 @@ public class KonversiSuhu extends javax.swing.JFrame {
         btnReset = new javax.swing.JButton();
         celciusLabel = new javax.swing.JLabel();
         celciusTextField = new javax.swing.JTextField();
+        fahrenheitTextfield = new javax.swing.JTextField();
+        reamurLabel = new javax.swing.JLabel();
+        kelvinLabel = new javax.swing.JLabel();
+        reamurTextfield = new javax.swing.JTextField();
+        kelvinTextfield = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,63 +63,86 @@ public class KonversiSuhu extends javax.swing.JFrame {
         });
 
         btnReset.setText("RESET");
-        btnReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResetActionPerformed(evt);
+        btnReset.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnResetMouseClicked(evt);
             }
         });
 
         celciusLabel.setText("Celcius");
 
-        celciusTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                celciusTextFieldActionPerformed(evt);
-            }
-        });
         celciusTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 celciusTextFieldKeyTyped(evt);
             }
         });
 
+        fahrenheitTextfield.setEditable(false);
+        fahrenheitTextfield.setFocusable(false);
+
+        reamurLabel.setText("Reamur");
+
+        kelvinLabel.setText("Kelvin");
+
+        reamurTextfield.setEditable(false);
+        reamurTextfield.setFocusable(false);
+
+        kelvinTextfield.setEditable(false);
+        kelvinTextfield.setFocusable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnConvert, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(celciusTextField)
-                            .addComponent(btnConvert, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE))
+                            .addComponent(celciusTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                            .addComponent(fahrenheitTextfield)
+                            .addComponent(kelvinTextfield)
+                            .addComponent(reamurTextfield))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(kelvinLabel)
+                            .addComponent(reamurLabel)
                             .addComponent(celciusLabel)
-                            .addComponent(fahrenheitLabel))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnReset, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27))))
+                            .addComponent(fahrenheitLabel))))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(celciusTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(celciusLabel))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(celciusLabel)
+                    .addComponent(celciusTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fahrenheitLabel)
-                    .addComponent(btnConvert))
+                    .addComponent(fahrenheitTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReset)
-                    .addComponent(btnExit))
-                .addContainerGap(17, Short.MAX_VALUE))
+                    .addComponent(reamurTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(reamurLabel))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(kelvinTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kelvinLabel))
+                .addGap(26, 26, 26)
+                .addComponent(btnConvert)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnExit)
+                    .addComponent(btnReset))
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -122,19 +151,17 @@ public class KonversiSuhu extends javax.swing.JFrame {
     private void btnConvertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertActionPerformed
         double celcius = Double.parseDouble(celciusTextField.getText());
         double fahrenheit = 1.8 * celcius +32;
-        fahrenheitLabel.setText(Double.toString(fahrenheit)+" Fahrenheit");
+        double reamur = 4 * celcius / 5;
+        double kelvin = celcius + 273.15;
+        fahrenheitTextfield.setText(Double.toString(fahrenheit));
+        reamurTextfield.setText(Double.toString(reamur));
+        kelvinTextfield.setText(Double.toString(kelvin));
         
     }//GEN-LAST:event_btnConvertActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
-
-    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        celciusTextField.setText("");
-        fahrenheitLabel.setText("Fahrenheit");
-        celciusTextField.requestFocus();
-    }//GEN-LAST:event_btnResetActionPerformed
 
     private void celciusTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_celciusTextFieldKeyTyped
         char c = evt.getKeyChar();
@@ -149,9 +176,13 @@ public class KonversiSuhu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_celciusTextFieldKeyTyped
 
-    private void celciusTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_celciusTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_celciusTextFieldActionPerformed
+    private void btnResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResetMouseClicked
+        celciusTextField.setText("");
+        fahrenheitTextfield.setText("");
+        reamurTextfield.setText("");
+        kelvinTextfield.setText("");
+        celciusTextField.requestFocus();
+    }//GEN-LAST:event_btnResetMouseClicked
 
     /**
      * @param args the command line arguments
@@ -195,5 +226,10 @@ public class KonversiSuhu extends javax.swing.JFrame {
     private javax.swing.JLabel celciusLabel;
     private javax.swing.JTextField celciusTextField;
     private javax.swing.JLabel fahrenheitLabel;
+    private javax.swing.JTextField fahrenheitTextfield;
+    private javax.swing.JLabel kelvinLabel;
+    private javax.swing.JTextField kelvinTextfield;
+    private javax.swing.JLabel reamurLabel;
+    private javax.swing.JTextField reamurTextfield;
     // End of variables declaration//GEN-END:variables
 }
